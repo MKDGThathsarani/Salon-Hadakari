@@ -2,25 +2,26 @@
 const mobileMenuBtn = document.getElementById('mobileMenuBtn');
 const mainNav = document.getElementById('mainNav');
 
-mobileMenuBtn.addEventListener('click', () => {
-    mainNav.classList.toggle('active');
-    mobileMenuBtn.innerHTML = mainNav.classList.contains('active') ? 
-        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-});
+if (mobileMenuBtn && mainNav) {
+    mobileMenuBtn.addEventListener('click', () => {
+        mainNav.classList.toggle('active');
+        mobileMenuBtn.innerHTML = mainNav.classList.contains('active') ?
+            '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    });
+}
 
 // Header Scroll Effect
 const header = document.getElementById('header');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
-});
+if (header) {
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 100);
+    });
+}
 
 // Create additional floating elements dynamically
 document.addEventListener('DOMContentLoaded', function () {
     const floatingContainer = document.querySelector('.floating-elements');
+    if (!floatingContainer) return;
     for (let i = 0; i < 5; i++) {
         const element = document.createElement('div');
         element.classList.add('floating-element');
@@ -94,6 +95,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    if (!testimonials.length || !indicators.length || !prevBtn || !nextBtn) return;
+
     // Next testimonial
     function nextTestimonial() {
         currentIndex = (currentIndex + 1) % testimonials.length;
@@ -123,13 +126,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Pause on hover
     const carousel = document.querySelector('.testimonials-carousel');
-    carousel.addEventListener('mouseenter', () => {
-        clearInterval(autoRotate);
-    });
+    if (carousel) {
+        carousel.addEventListener('mouseenter', () => {
+            clearInterval(autoRotate);
+        });
 
-    carousel.addEventListener('mouseleave', () => {
-        autoRotate = setInterval(nextTestimonial, 5000);
-    });
+        carousel.addEventListener('mouseleave', () => {
+            autoRotate = setInterval(nextTestimonial, 5000);
+        });
+    }
 
     // Initialize
     showTestimonial(currentIndex);
@@ -164,7 +169,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             });
             
             // Close mobile menu if open
-            if (mainNav.classList.contains('active')) {
+            if (mainNav && mobileMenuBtn && mainNav.classList.contains('active')) {
                 mainNav.classList.remove('active');
                 mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
             }
@@ -184,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // Close mobile menu when clicking on a link
 document.querySelectorAll('nav a').forEach(link => {
     link.addEventListener('click', () => {
-        if (mainNav.classList.contains('active')) {
+        if (mainNav && mobileMenuBtn && mainNav.classList.contains('active')) {
             mainNav.classList.remove('active');
             mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
         }
