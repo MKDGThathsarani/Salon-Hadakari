@@ -20,6 +20,7 @@ body {
     background: var(--refresh-paper) !important;
     color: var(--refresh-ink) !important;
     font-family: 'Manrope', sans-serif !important;
+    overflow-x: hidden !important;
 }
 
 body, button, input, select, textarea {
@@ -317,6 +318,11 @@ footer a:hover {
         background: var(--refresh-white) !important;
         border-top: 1px solid var(--refresh-line);
         box-shadow: var(--refresh-shadow);
+        left: -100%;
+    }
+
+    nav#mainNav.active {
+        left: 0;
     }
 
     nav#mainNav ul {
