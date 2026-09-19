@@ -1,4 +1,4 @@
-// About.js - Enhanced version matching index.js functionality
+// About.js - Enhanced version matching main.js functionality
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const mainNav = document.getElementById('mainNav');
