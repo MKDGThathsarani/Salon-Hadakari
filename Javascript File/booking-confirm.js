@@ -119,8 +119,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Map staff names to images
         const staffImages = {
-            'Sathika Ranathunga': 'PNG File/Sathika.jpg',
-            'Sanduni Savindi': 'PNG File/sanduni.jpg',
+            'Sathika Ranathunga': 'images/Sathika.jpg',
+            'Sanduni Savindi': 'images/sanduni.jpg',
             'Shetha Shashipraba': 'https://randomuser.me/api/portraits/women/33.jpg'
         };
         

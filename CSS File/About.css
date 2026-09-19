@@ -249,7 +249,7 @@ nav ul li a.active::after {
 /* Fallback for mobile devices */
 @media (max-width: 768px) {
     .video-hero {
-        background: url('PNG File/hero-fallback.jpg') center/cover no-repeat;
+        background: url('images/hero-fallback.jpg') center/cover no-repeat;
     }
 
     .video-hero video {
